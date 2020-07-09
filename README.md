@@ -4,7 +4,7 @@
 
 Authors:
 
-Jonathan Kim (Project Lead)
+Jonathan Kim
 
 Curtis Pike
 
