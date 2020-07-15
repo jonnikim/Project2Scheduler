@@ -1,23 +1,36 @@
+//Dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
 const app = express();
+const path = require('path');
+//const db = require('./models');
 
-// Sets up the Express App
-// =============================================================
-const app = express();
-const PORT = process.env.PORT || 8080;
+app.set('views', path.join(__dirname, 'views'));
 
-// Requiring our models for syncing
-const db = require('./models');
+//Handlebar Views Setup
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-// Syncing our sequelize models and then starting our express app
-db.sequelize.sync({ force: true }).then(() => {
-	app.listen(PORT, () => {
-		console.log('App listening on PORT ' + PORT);
+require('./routes')(app);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+	const err = new Error('Not Found');
+	err.status = 404;
+	next(err);
+});
+
+app.use(function (err, req, res, next) {
+	res.status(err.status || 500);
+	res.render('error', {
+		message: err.message,
+		error: app.get('env') === 'development' ? err : {},
 	});
 });
+
+module.exports = app;

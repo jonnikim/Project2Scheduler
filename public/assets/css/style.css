@@ -1,0 +1,334 @@
+* {
+	font-family: canada-type-gibson, sans-serif;
+}
+
+html {
+	font-family: canada-type-gibson, sans-serif;
+}
+
+.navContainer {
+	box-shadow: 0px 2px 8px 2px #888888;
+	background-color: white;
+	text-transform: none;
+}
+
+.navContainerCli {
+	box-shadow: 0px 2px 8px 2px #888888;
+	background-color: whitesmoke;
+	text-transform: none;
+	height: 75px;
+}
+
+.dubNavLogo {
+	height: 40%;
+	width: 40%;
+}
+
+#navtext {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: none;
+}
+
+#navtextClient {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	text-transform: none;
+	font-size: 22px;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.totalbkg {
+	background-color: #33c198;
+}
+
+.totalbkgCli {
+	background-color: white;
+}
+
+.totalbkgCliconfirm {
+	background-color: deeppink;
+}
+
+.cenFullContainer {
+	background-color: #33c198;
+	position: relative;
+}
+
+.cenFullContainerClient {
+	background-color: white;
+	position: relative;
+}
+
+.centerContainer {
+	background-color: #8ee0cc;
+
+	height: 100vh;
+	width: 100%;
+}
+
+.centerContainerSch {
+	background-color: #1cc198;
+
+	height: 100vh;
+	width: 100%;
+}
+
+.centerContainerCliSch {
+	background-color: white;
+
+	height: 100%;
+	width: 100%;
+}
+
+#btnGreen1 {
+	background-color: #33c198;
+	border-radius: 20px;
+	color: white;
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: none;
+	margin-left: 40px;
+}
+
+#btnGreen1:hover {
+	background-color: #169a7a;
+}
+
+#leftloginModal {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-transform: none;
+}
+
+#right-image {
+	height: 100%;
+	background-image: url('https://www.thebalancecareers.com/thmb/h7pf1GtLCuFUNcytjtyUBvt4SRk=/3337x2503/smart/filters:no_upscale()/business-meeting-982874716-5bce2d8fc9e77c0051938d79.jpg');
+	background-size: cover;
+	background-position: center;
+	background-position-x: center;
+	background-position-y: center;
+}
+
+#right-image-reg {
+	height: 100%;
+	background-image: url('https://www.globalsign.com/application/files/5015/2178/5420/why-you-should-sign-up-for-a-digital-signing-service-right-now.jpg');
+	background-size: cover;
+	background-position: center;
+	background-position-x: center;
+	background-position-y: center;
+}
+
+#logo-image {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 120px;
+	display: block;
+}
+.spacer-50 {
+	margin-top: 50px;
+}
+
+.text-center {
+	text-align: center;
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	text-transform: none;
+	color: #5b5b60;
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.signuptext {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 200;
+	font-style: normal;
+}
+
+.login-input {
+	height: 50px;
+	padding: 5px;
+	border: #ccc thin solid;
+	width: 100%;
+	font-weight: 300;
+}
+
+.returntologin {
+	text-align: right;
+	margin: 0px;
+	padding: 0px;
+}
+
+#calendarAdmin {
+	margin: auto;
+	width: 80%;
+	padding: 20px 20px 20px 20px;
+	background-color: #e8f9f5;
+	border: white 2px solid;
+	border-radius: 20px;
+	font-family: canada-type-gibson, sans-serif;
+}
+
+#calendarClient {
+	float: left;
+	width: 740px;
+	margin: 10px 20px 20px 10px;
+	padding: 20px 20px 20px 20px;
+	background-color: white;
+	border: lightgray 2px solid;
+	box-shadow: 4px 4px 8px 2px #888888;
+	font-family: canada-type-gibson, sans-serif;
+}
+
+#availhrs {
+	float: right;
+	margin: 10px 20px 20px 10px;
+	padding: 20px 20px 20px 20px;
+	background-color: white;
+	border: lightgray 2px solid;
+	font-family: canada-type-gibson, sans-serif;
+	height: 580px;
+	width: 350px;
+	box-shadow: 4px 4px 8px 2px #888888;
+}
+
+.AboveCalBox {
+	height: 150px;
+}
+
+.AboveCalBoxconf {
+	height: 80px;
+}
+
+#topdate {
+	background-color: white;
+	width: 100%;
+	height: 15%;
+}
+
+#insideTimes {
+	background-color: white;
+	height: 75%;
+	width: 100%;
+
+	overflow-y: auto;
+}
+
+#confirmdatetime {
+	width: 95%;
+	height: 10%;
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 18px;
+	background-color: deeppink;
+	color: white;
+}
+
+#dayofWeek,
+#dayofWeek2 {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 30px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#datedisplay,
+#datedisplay2 {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 20px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#timedisplay {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 20px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.contentdisplay {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 20px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.contentdisplaytextarea {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 16px;
+	margin: 0px;
+	padding: 0px;
+	width: 70%;
+}
+
+.availTimeBox {
+	width: 95%;
+	margin: 8px 0;
+	border: grey 1px solid;
+	text-align: center;
+	padding: 20px 0;
+	background-color: white;
+}
+
+.availTimeBox:hover {
+	cursor: pointer;
+	background-color: deeppink;
+	color: white;
+}
+
+.availTimeBox:focus {
+	background-color: mediumvioletred;
+	color: white;
+}
+
+#newEventModalTheme {
+	font-family: canada-type-gibson, sans-serif;
+}
+
+#submitFinishbtn {
+	background-color: deeppink;
+	box-shadow: 2px 2px 4px 2px #888888;
+	border-radius: 3px;
+	color: white;
+	float: right;
+}
+
+.clischheaderConfirmpg {
+	color: deeppink;
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.addtocalIcon {
+	margin-right: 20px;
+	color: deeppink;
+}
+
+.addtocalText {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 20px;
+	color: deeppink;
+}

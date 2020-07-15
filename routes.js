@@ -1,13 +1,9 @@
-module.exports = function(app){
+module.exports = function (app) {
+	const application = require('./routes/application');
+	const admin = require('./routes/admin');
+	const client = require('./routes/client');
 
-		const application = require('./routes/application');
-		const users = require('./routes/users');
-		const trips = require('./routes/trips');
-		const pricing = require('./routes/pricing');
-
-		app.use('/', application);
-		app.use('/users', users);
-		app.use('/trips', trips);
-		app.use('/pricing', pricing);
-    //other routes..
-}
+	app.use('/', application);
+	app.use('/admin', admin);
+	app.use('/client', client);
+};
