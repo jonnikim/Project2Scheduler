@@ -9,4 +9,6 @@ router.get('/login', admin_controller.login);
 
 router.get('/schedule', admin_controller.schedule);
 
+router.get('/schedule/events', admin_controller.schedulejson);
+
 module.exports = router;

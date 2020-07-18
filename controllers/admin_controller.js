@@ -9,5 +9,14 @@ exports.login = function (req, res) {
 };
 
 exports.schedule = function (req, res) {
-	res.render('admin/schedule'); //*Fill in what to render
+	res.render('admin/schedule');
+};
+
+exports.schedulejson = function (req, res) {
+	db.Event.findAll({}).then(function (dbEvent) {
+		// We have access to the todos as an argument inside of the callback function
+
+		res.json(dbEvent);
+	});
+	//res.render('admin/schedule'); //*Fill in what to render
 };

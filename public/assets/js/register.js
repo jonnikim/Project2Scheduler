@@ -21,6 +21,8 @@ $(document).ready(function () {
 		// Replace all alerts with modals
 
 		var newUserReg = {
+			first_name: regFN.val().trim(),
+			last_name: regLN.val().trim(),
 			email: regEmail.val().trim(),
 			password: password.val().trim(),
 		};
@@ -30,19 +32,16 @@ $(document).ready(function () {
 		}
 
 		// If we have an email and password, run the signUpUser function
-		signUpUser(userData.email, userData.password);
-		emailInput.val('');
-		passwordInput.val('');
-		usernameInput.val('');
-		repeatPasswordInput.val('');
-		repeatEmailInput.val('');
+		signUpUser(newUserReg.first_name, newUserReg.last_name, newUserReg.email, newUserReg.password);
 	});
 
-	function signUpUser(username, email, password) {
+	function signUpUser(email, password) {
 		$.post('/admin/register', {
-			username: username,
+			first_name: first_name,
+			last_name: last_name,
 			email: email,
 			password: password,
+			is_admin: 1,
 		})
 			.then(function (data) {
 				if (data.duplicateUser) {
@@ -52,6 +51,7 @@ $(document).ready(function () {
 					window.location = data.redirect;
 				}
 			})
+
 			.catch(function (err) {
 				console.log(err);
 			});
