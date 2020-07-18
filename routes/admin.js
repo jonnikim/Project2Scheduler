@@ -9,6 +9,7 @@ router.get('/register', admin_controller.registrationPage);
 
 router.get('/schedule', admin_controller.schedule);
 
+
 router.get('/logout', admin_controller.signOutUser);
 
 router.get('/login',  admin_controller.login);
@@ -20,5 +21,8 @@ router.post('/login', passport.authenticate("local", { failureRedirect: '/login'
 function(req, res) {
   res.redirect('/');
 }), admin_controller.login;
+
+router.get('/schedule/events', admin_controller.schedulejson);
+
 
 module.exports = router;

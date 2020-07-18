@@ -14,6 +14,7 @@ $(document).ready(function () {
         regEmail: ${regEmail}
         password: ${password}
         `);
+
     });
     function signUpUser(first_name, last_name, email, password) {
         $.post('/admin/register', {
@@ -52,5 +53,6 @@ registerBTN.on('click', function (event) {
 	// }
 	// If we have an email and password, run the signUpUser function
 	signUpUser(newUserReg.first_name, newUserReg.last_name, newUserReg.email, newUserReg.password);
+
 });
 });
