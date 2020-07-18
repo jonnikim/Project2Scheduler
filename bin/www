@@ -1,17 +1,8 @@
 #!/usr/bin/env node
-<<<<<<< HEAD
-
 const debug = require("debug")("express-example");
 const app = require("../server");
 const db = require("../models");
 app.set("port", process.env.PORT || 8084);
-=======
-const debug = require('debug')('express-example');
-const app = require('../server');
-const db = require('../models');
-
-app.set('port', process.env.PORT || 8084);
->>>>>>> 94a60ece8643d4c06667a496ae1190c8c5acf5be
 
 db.sequelize.sync().then(function () {
   const server = app.listen(app.get("port"), function () {
