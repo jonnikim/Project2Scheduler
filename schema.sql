@@ -1,4 +1,6 @@
--- Drops the scheduler if it exists currently --
-DROP DATABASE IF EXISTS scheduler;
--- Creates the "scheduler" database --
-CREATE DATABASE scheduler;
+DROP DATABASE IF EXISTS appointment;
+CREATE DATABASE appointment;
+DROP DATABASE IF EXISTS users;
+CREATE DATABASE users;
+DROP DATABASE IF EXISTS clients;
+CREATE DATABASE clients;
