@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const auth_controller = require("../controllers/auth_controller");
 const passport = require("passport");
+const qs = require("qs");
+const MS_GRAPH_SCOPE = "https://graph.microsoft.com/.default";
+require("dotenv").config();
+const app = express();
 
 // router.get("/signin", auth_controller.signin);
 // router.get("/callback", auth_controller.callback);
@@ -25,6 +29,7 @@ router.post("/callback", function (req, res, next) {
     failureFlash: true,
     successRedirect: "/",
   })(req, res, next);
+  console.log("Me");
 });
 
 router.get("/signout", function (req, res) {

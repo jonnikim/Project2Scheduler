@@ -9,8 +9,9 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const app = express();
 const path = require("path");
+const axios = require("axios");
+const qs = require("qs");
 //const db = require('./models');
-<<<<<<< HEAD
 
 let users = {};
 
@@ -87,8 +88,8 @@ passport.use(
       validateIssuer: false,
       passReqToCallback: false,
       scope: process.env.OAUTH_SCOPES.split(" "),
-    },
-    signInComplete
+    }
+    // signInComplete
   )
 );
 require("./routes")(app);
@@ -111,37 +112,26 @@ app.set("views", path.join(__dirname, "views"));
 //Handlebar Views Setup
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-=======
-const passport = require('passport');
-
-//Handlebar Views Setup
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-// app.set('views', path.join(__dirname, '/views'));
->>>>>>> 94a60ece8643d4c06667a496ae1190c8c5acf5be
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-<<<<<<< HEAD
 app.use(express.static("public"));
-
-// Azure & Office 365 API
-app.use(cookieParser());
+app.use(require("serve-static")(__dirname + "/../../public"));
+app.use(require("cookie-parser")());
+app.use(require("body-parser").urlencoded({ extended: true }));
+app.use(
+  require("express-session")({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
-=======
-app.use(express.static('public'));
-app.use(require('serve-static')(__dirname + '/../../public'));
-app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({ extended: true }));
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-require('./routes')(app);
+require("./routes")(app);
 
 // catch 404 and forward to error handler
->>>>>>> 94a60ece8643d4c06667a496ae1190c8c5acf5be
 app.use(function (req, res, next) {
   // Set the authenticated user in the
   // template locals
@@ -157,4 +147,36 @@ app.use(function (req, res, next) {
 });
 
 app.use(function (err, req, res, next) {});
+
+// async function sending(accessToken) {
+//   try {
+//     console.log("SENT?");
+//     const mail = await graph.sendMail(accessToken);
+//   } catch (err) {
+//     return console.log(err);
+//   }
+// }
+// const postData = {
+//   client_id: process.env.OAUTH_APP_ID,
+//   scope: "https://graph.microsoft.com/.default",
+//   client_secret: process.env.OAUTH_APP_PASSWORD,
+//   grant_type: "client_credentials",
+// };
+
+// axios.defaults.headers.post["Content-Type"] =
+//   "application/x-www-form-urlencoded";
+// let token = "";
+// axios
+//   .post(
+//     "https://login.microsoftonline.com/47f5c791-6089-4043-8131-a3ad81b5224f/oauth2/v2.0/token",
+//     qs.stringify(postData)
+//   )
+//   .then((response) => {
+//     console.log(response.data.access_token);
+//     sending(response.data.access_token);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
 module.exports = app;

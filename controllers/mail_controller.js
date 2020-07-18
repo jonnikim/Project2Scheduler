@@ -28,7 +28,9 @@ module.exports = {
       },
     };
     try {
-      let response = await client.api("/me/sendMail").post({ message: mail });
+      let response = await client
+        .api("/users/me/sendMail")
+        .post({ message: mail });
       console.log(response);
     } catch (error) {
       throw error;
