@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "test",
-    "database": "todolist",
+    "database": "scheduler",
     "host": "localhost",
     "port": 3306,
     "dialect": "mysql"
