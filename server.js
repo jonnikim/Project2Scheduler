@@ -1,34 +1,41 @@
+//Dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
-const session = require('express-session');
-
-// Sets up the Express App
-// =============================================================
 const app = express();
-const PORT = process.env.PORT || 8080;
+const path = require('path');
+//const db = require('./models');
+const passport = require('passport');
 
-// Requiring our models for syncing
-// const db = require('./models');
+//Handlebar Views Setup
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+// app.set('views', path.join(__dirname, '/views'));
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
+app.use(require('serve-static')(__dirname + '/../../public'));
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+require('./routes')(app);
 
-// Session middleware
-// NOTE: Uses default in-memory session store, which is not
-// suitable for production
-app.use(session({
-	secret: 'BHrtlmy3X-1.JY9z-Dd8V7.YA0Ad7~R32l',
-	resave: false,
-	saveUninitialized: false,
-	unset: 'destroy'
-  }));
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+	const err = new Error('Not Found');
+	err.status = 404;
+	next(err);
+});
 
-// Syncing our sequelize models and then starting our express app
-// db.sequelize.sync({ force: true }).then(() => {
-	app.listen(PORT, () => {
-		console.log('App listening on PORT ' + PORT);
+app.use(function (err, req, res, next) {
+	res.status(err.status || 500);
+	res.render('error', {
+		message: err.message,
+		error: app.get('env') === 'development' ? err : {},
 	});
-// });
+});
 
+module.exports = app;
