@@ -1,28 +1,41 @@
 'use strict';
-const { Model } = require('sequelize');
+
+const bcrypt = require("bcrypt");
+
 module.exports = (sequelize, DataTypes) => {
-	class User extends Model {
-		/**
-		 * Helper method for defining associations.
-		 * This method is not a part of Sequelize lifecycle.
-		 * The `models/index` file will call this method automatically.
-		 */
-		static associate(models) {
-			// define association here
-		}
-	}
-	User.init(
-		{
-			first_name: DataTypes.STRING,
-			last_name: DataTypes.STRING,
-			email: DataTypes.STRING,
-			password: DataTypes.STRING,
-			is_admin: DataTypes.BOOLEAN,
-		},
-		{
-			sequelize,
-			modelName: 'User',
-		}
-	);
-	return User;
-};
+     var User = sequelize.define('User', {
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+      last_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true
+      }
+    },
+    // The password cannot be null
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  },
+  {
+    // Hooks are automatic methods that run during various phases of the User Model lifecycle
+    // In this case, before a User is created, we will automatically hash their password
+    hooks: {
+      beforeCreate: function(user) {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+      }
+    }
+  });
+  User.prototype.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+  }   
+  return User;
+}

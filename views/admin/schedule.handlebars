@@ -10,8 +10,15 @@
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
-                        <li class=""><a class="" id="navtext" href="#">Log in</a></li>
-
+                {{!-- {{#if isAuthenticated}} --}}
+                    <li>
+                        <a href="/admin/logout" class="page-scroll" data-toggle="modal">Logout</a>
+                    </li>
+                {{!-- {{else}}
+                    <li>
+                        <a class="page-scroll" data-toggle="modal" data-target="#login-modal" href="/admin/logout">Login/Sign Up</a>
+                    </li> --}}
+                {{!-- {{/if}} --}}
                         <li class=""><a id="navtext" href="#">Profile</a></li>
                         <div class="uk-navbar-right navtext">
                             <form action="javascript:void(0)">

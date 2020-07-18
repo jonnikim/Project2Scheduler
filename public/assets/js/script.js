@@ -1,3 +1,4 @@
+// require("fullcalendar");
 let clientScheduleDate = '';
 let clientScheduleday = '';
 let clientScheduleTime = '';

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -19,46 +19,43 @@
 		<!--   -->
 	</head>
 	<body>
-		<!-- Nav Bar Part   -->
-
-		<!-- Log-in Modal   -->
-
-		<div class="">
-			<div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
-				<div class="uk-padding-large" id="leftloginModal">
-					<img id="logo-image" src="https://hello.dubsado.com/images/Logo1(Transparent_bg).png" />
-					<div class="spacer-50"></div>
-					<h2 class="text-center">Log-in</h2>
-					<p class="signuptext">Need an account? <a href="/register">Sign up here.</a></p>
-					<form class="uk-form-stacked" id="login">
-						<div class="uk-margin">
-							<label class="uk-form-label" for="form-stacked-text">Email</label>
-							<div class="uk-form-controls">
-								<input class="uk-input" id="form-stacked-text user" type="text" />
-								<small id="username-feedback" class=""></small>
-
-							</div>
+		<section class="totalbkg">
+			<!-- Nav Bar Part   -->
+			<nav class="uk-margin navContainer">
+				<div class="uk-container">
+					<div class="uk-navbar">
+						<div class="uk-navbar-left">
+							<a class="uk-navbar-left uk-logo" href="#"
+								><img src="https://uploads-ssl.webflow.com/5d2cbb53b1d7890c7748f4c7/5d2cbb53b1d789872b48f552_dubsado-logo-nav-min.png" class="dubNavLogo"
+							/></a>
 						</div>
+						<div class="uk-navbar-right">
+							<ul class="uk-navbar-nav">
+								<li class=""><a class="" id="navtext" href="#">Log in</a></li>
 
-						<div class="uk-margin">
-							<label class="uk-form-label" for="form-stacked-text">Password</label>
-							<div class="uk-form-controls">
-								<input class="uk-input" id="form-stacked-text passwrd" type="password" />
-								<small id="password-feedback" class=""></small>
-
-							</div>
+								<li class=""><a id="navtext" href="#">Profile</a></li>
+								<div class="uk-navbar-right navtext">
+									<form action="javascript:void(0)">
+										<button class="uk-button uk-button-default" id="btnGreen1">New Appointment</button>
+									</form>
+								</div>
+							</ul>
 						</div>
-						<button class="uk-button uk-button-secondary uk-width-1-1" type="submit" value="Submit">Log In</button>
-					</form>
+					</div>
 				</div>
-				<div class="uk-background-cover" id="right-image" uk-height-viewport></div>
+			</nav>
+			<!-- Center Div Part  -->
+			<div class="uk-margin cenFullContainer">
+				<div class="uk-container">
+					<div class="centerContainer"></div>
+				</div>
 			</div>
-		</div>
+			<!-- Log-in Modal   -->
 
-		<!--   -->
+			<!--   -->
 
-		<!-- jQuery -->
-
+			<!-- jQuery -->
+		</section>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<!-- UiKit Core Javascript  -->
 		<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>

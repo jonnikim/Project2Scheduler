@@ -1,7 +1,9 @@
 {
 	"development": {
 		"username": "root",
+
 		"password": "JeffMacSQL!!",
+
 		"database": "scheduler",
 		"host": "localhost",
 		"port": 3306,
