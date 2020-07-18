@@ -3,6 +3,7 @@ let clientScheduleday = '';
 let clientScheduleTime = '';
 let clientScheduleTimeAttrStart = '';
 let clientScheduleTimeAttrEnd = '';
+let eventsData = [];
 
 //*Months Array to convert MM to Month Name
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -10,8 +11,8 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 const times = [
-	'9:00:00',
-	'9:30:00',
+	'09:00:00',
+	'09:30:00',
 	'10:00:00',
 	'10:30:00',
 	'11:00:00',
@@ -28,118 +29,86 @@ const times = [
 	'16:30:00',
 ];
 
+const endTimes = [
+	'10:00:00',
+	'10:30:00',
+	'11:00:00',
+	'11:30:00',
+	'12:00:00',
+	'12:30:00',
+	'13:00:00',
+	'13:30:00',
+	'14:00:00',
+	'14:30:00',
+	'15:00:00',
+	'15:30:00',
+	'16:00:00',
+	'16:30:00',
+	'17:00:00',
+	'17:30:00',
+];
+
 //* function to convert YYYY-MM-DD to MM/DD/YYYY
 function formatDateView(date) {
 	const dateObj = new Date(date + 'T00:00:00');
 	return new Intl.DateTimeFormat('en-US').format(dateObj);
 }
 
+//* Ajax call to assign events variable with data to be pulled into the calendar
+getEvents();
+
+function getEvents() {
+	$.get('/admin/schedule', function (data) {
+		eventsData = data;
+		console.log(eventsData);
+		return eventsData;
+	});
+}
+
+console.log(eventsData);
+
 //* Calendar for Admin Scheduler Page
 document.addEventListener('DOMContentLoaded', function () {
-	var calendarEl = document.getElementById('calendarAdmin');
-	var calendarAdmin = new FullCalendar.Calendar(calendarEl, {
-		customButtons: {
-			sendApptInvite: {
-				text: 'Send New Appointment Invite!',
+	$.get('/admin/schedule', function (data) {
+		console.log(data);
+	}).then(function () {
+		$.get('/admin/schedule/events', function (data2) {
+			console.log(data2);
+		}).then(function (edata2) {
+			var calendarEl = document.getElementById('calendarAdmin');
+			var calendarAdmin = new FullCalendar.Calendar(calendarEl, {
+				customButtons: {
+					sendApptInvite: {
+						text: 'Send New Appointment Invite!',
 
-				click: function () {
-					//alert('Form Pulls Up To Send Invite Email!');
-					window.location.href = '#modal-sections';
+						click: function () {
+							//alert('Form Pulls Up To Send Invite Email!');
+							window.location.href = '#modal-sections';
+						},
+					},
 				},
-			},
-		},
-		headerToolbar: {
-			left: 'sendApptInvite',
-			center: 'title',
-			right: 'prev,next today dayGridMonth,timeGridWeek,timeGridDay,listMonth',
-		},
-		dateClick: function () {
-			alert('a day has been clicked!');
-		},
+				headerToolbar: {
+					left: 'sendApptInvite',
+					center: 'title',
+					right: 'prev,next today dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+				},
+				eventClick: function (info) {
+					alert('Event: ' + info.event.title);
 
-		navLinks: true, // can click day/week names to navigate views
-		businessHours: true, // display business hours
-		editable: true,
-		selectable: true,
-		events: [
-			{
-				title: 'Business Lunch',
-				start: '2020-06-03T13:00:00',
-				constraint: 'businessHours',
-			},
-			{
-				title: 'Meeting',
-				start: '2020-06-13T11:00:00',
-				constraint: 'availableForMeeting', // defined below
-				color: '#257e4a',
-			},
-			{
-				title: 'Conference',
-				start: '2020-06-18',
-				end: '2020-06-20',
-			},
-			{
-				title: 'Party',
-				start: '2020-06-29T20:00:00',
-			},
+					// change the border color just for fun
+					info.el.style.borderColor = 'red';
+				},
 
-			// areas where "Meeting" must be dropped
-			{
-				groupId: 'availableForMeeting',
-				start: '2020-06-11T10:00:00',
-				end: '2020-06-11T16:00:00',
-				display: 'background',
-			},
-			{
-				groupId: 'availableForMeeting',
-				start: '2020-06-13T10:00:00',
-				end: '2020-06-13T16:00:00',
-				display: 'background',
-			},
+				navLinks: true, // can click day/week names to navigate views
+				businessHours: true, // display business hours
+				editable: true,
+				selectable: true,
+				events: edata2,
+			});
 
-			// red areas where no events can be dropped
-			{
-				start: '2020-06-24',
-				end: '2020-06-28',
-				overlap: false,
-				display: 'background',
-				color: '#ff9f89',
-			},
-			{
-				start: '2020-06-06',
-				end: '2020-06-08',
-				overlap: false,
-				display: 'background',
-				color: '#ff9f89',
-			},
-			{
-				title: 'Appointment: Client 1',
-				start: '2020-07-15T10:00:00',
-				end: '2020-07-15T11:00:00',
-			},
-			{
-				title: 'Apt: Client 2',
-				start: '2020-07-23T10:00:00',
-				end: '2020-07-23T11:00:00',
-				constraint: 'businessHours',
-			},
-			{
-				id: 012345,
-				title: 'Test Event Formatting',
-				start: '2020-07-23T11:00:00',
-				end: '2020-07-23T12:00:00',
-				constraint: 'businessHours',
-				admin_id: '',
-				first_name: '',
-				last_name: '',
-				email: '',
-				if1: '',
-				if2: '',
-				itf: '',
-			},
-		],
+			calendarAdmin.render();
+		});
 	});
-	calendarAdmin.render();
 });
 
 //* Calendar for Client Scheduler Page
@@ -183,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				// Sets variable to index value to reset time formatting to merge into object later
 				//! Change when selecting hour works:
 				let mTimeStart = times[clientScheduleTimeAttrStart];
-				let mTimeEnd = times[clientScheduleTimeAttrEnd];
+				let mTimeEnd = endTimes[clientScheduleTimeAttrStart];
 				//*Code to get correct date + T + time formatting:
 				let newEventStartTime = info.dateStr + 'T' + mTimeStart;
 				let newEventEndTime = info.dateStr + 'T' + mTimeEnd;
@@ -198,7 +167,9 @@ document.addEventListener('DOMContentLoaded', function () {
 						title: 'New Event With ' + $('#newEventFN').val().trim() + ' ' + $('#newEventLN').val().trim() + ' on ' + clientScheduleDay + ', ' + clientScheduleDate,
 						start: newEventStartTime,
 						end: newEventEndTime,
+						constraint: 'businesshours',
 						testdate: clientScheduleDay,
+						testtime: clientScheduleTime,
 						testdateind: info.dateStr,
 						first_name: $('#newEventFN').val().trim(),
 						last_name: $('#newEventLN').val().trim(),
@@ -206,17 +177,18 @@ document.addEventListener('DOMContentLoaded', function () {
 						if1: $('#newEventIF1').val().trim(),
 						if2: $('#newEventIF2').val().trim(),
 						ift: $('#newEventITF').val().trim(),
+						is_booked: 'disabled',
 					};
 					console.log(newEvent);
 
 					//! Need to update code below to get to post
-					$.ajax('/api/events', {
+					$.ajax('/client/newevent', {
 						type: 'POST',
 						data: newEvent,
 					}).then(function () {
 						console.log('New Event Added!');
 
-						location.reload();
+						location.replace('/client/neweventconfirm', newEvent);
 					});
 				});
 			});
