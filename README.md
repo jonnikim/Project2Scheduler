@@ -17,8 +17,7 @@ Basic scheduling application that allows Users to create an account and allows c
 
 ### Primary Goal:
 
-*Allow a client to input their contact information to book an appointment on a selected date/time.
-*Client's information is then used to populate an email's details and send an appointment confirmation.
+Allow a client to input their contact information to book an appointment on a selected date/time. Client's information is then used to populate an email's details and send an appointment confirmation.
 
 ## Implementation:
 
@@ -41,17 +40,17 @@ git clone https://github.com/jonnikim/Project2Scheduler.git
 npm install
 ```
 ### Configure your config.json
-*Head to /config/config.json and update fields as needed.
+Head to /config/config.json and update fields as needed.
 
 ### Load Database
-*Open MySQLWorkbench or equivalent and use the schema.sql to create the 'scheduler' database
+Open MySQLWorkbench or equivalent and use the schema.sql to create the 'scheduler' database
 
 ### Start the App
  
 ```bash
 npm start
 ```
-*Open up localhost:8084
+Open up localhost:8084
 
 ## Additional Links
 
