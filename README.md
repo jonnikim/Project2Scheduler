@@ -40,12 +40,18 @@ git clone https://github.com/jonnikim/Project2Scheduler.git
 ```bash
 npm install
 ```
-Edit config.json to match your MySQLWorkbench or equivalent
+### Configure your config.json
+-Head to /config/config.json and update fields as needed.
+
+### Load Database
+-Open MySQLWorkbench or equivalent and use the schema.sql to create the 'scheduler' database
+
+### Start the App
  
 ```bash
 npm start
 ```
-Open up localhost:8084
+-Open up localhost:8084
 
 ## Additional Links
 
