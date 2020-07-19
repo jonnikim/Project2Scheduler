@@ -14,7 +14,6 @@ Jeff Quittman
 
 Scheduler Application - Dubsado
 Basic scheduling application that allows Users to create an account and allows clients to schedule an appointment. Clients do not need a login nor do they need to create an account. Clients can access the User's calendar and select a date/time. After, they'll be led to a form to fill out to book the appointment. Booked appointment will then block off that time-slot from being double-booked.
-<p align="center"><img width=95% src="https://github.com/jonnikim/Project2Scheduler/blob/master/Mockups/Scheduler(Monthly).png"></p>
 
 
 ### Primary Goal:
