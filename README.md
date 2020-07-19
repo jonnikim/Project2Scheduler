@@ -33,7 +33,9 @@ Basic scheduling application that allows Users to create an account and allows c
 ## Installation:
 
 1. Git clone repository link: https://github.com/jonnikim/Project2Scheduler.git
-2. npm install
+2. ```bash
+npm install
+```
 3. Edit config.json to match your MySQLWorkbench or equivalent
 4. npm start
 5. Open up localhost:8084
