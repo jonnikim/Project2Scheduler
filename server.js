@@ -1,4 +1,5 @@
 //Dependencies
+const MemoryStore = require("memorystore")(session);
 const express = require("express");
 const exphbs = require("express-handlebars");
 const app = express();
@@ -28,7 +29,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 require("./routes")(app);
-
+app.use(
+  session({
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000, // prune expired entries every 24h
+    }),
+    secret: "keyboard cat",
+  })
+);
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
 //   const err = new Error("Not Found");
