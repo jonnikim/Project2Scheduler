@@ -10,52 +10,56 @@
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
-                    <li>
-                        <a href="/admin/logout" class="page-scroll" data-toggle="modal">Logout</a>
-                    </li>
-                        <li class=""><a id="navtext" href="#">Profile</a></li>
+                        <li>
+                            <a href="/admin/logout" class="page-scroll" data-toggle="modal">Logout</a>
+                        </li>
+                        <li class=""><a id="navtext" href="/admin/schedule">Profile</a></li>
                         <div class="uk-navbar-right navtext">
                             <form action="javascript:void(0)">
                                 <!-- This is a button toggling the modal -->
-                                <button class="uk-button uk-button-default"  uk-toggle="target: #email" id="btnGreen1">New Appointment</button>
-                            <!-- This is the modal -->
+                                <li class=""><a id="navtext" href="/client/newevent">New Appointment</a></li>
+                                <!-- This is the modal -->
                                 <div id="email" uk-modal>
                                     <div class="uk-modal-dialog uk-modal-body">
                                         <h2 class="uk-modal-title"> Send Email </h2>
-                                    <div class="uk-margin">
-                                        <form class="uk-form-stacked sendEmail">
-                                            <div class="uk-margin">
+                                        <div class="uk-margin">
+                                            <form class="uk-form-stacked sendEmail">
+                                                <div class="uk-margin">
                                                     <label class="uk-form-label" for="firstnamereg">First Name</label>
                                                     <div class="uk-form-controls">
-                                                        <input class="uk-input  uk-form-medium" id="firstnamereg" type="text" equired="" />
+                                                        <input class="uk-input  uk-form-medium" id="firstnamereg"
+                                                            type="text" equired="" />
                                                     </div>
                                                     <label class="uk-form-label " for="lastnamereg">Last Name</label>
                                                     <div class="uk-form-controls">
-                                                        <input class="uk-input  uk-form-medium" id="lastnamereg" type="text" equired="" />
+                                                        <input class="uk-input  uk-form-medium" id="lastnamereg"
+                                                            type="text" equired="" />
                                                     </div>
-                                            </div>
-                                            <label class="uk-form-label" for="firstnamereg">To: </label>
-                                            <div class="uk-form-controls">
-                                                <input class="uk-input" id="firstnamereg" type="text" equired="" />
-                                            </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label" for="lastnamereg">Body</label>
-                                                <textarea id="email-body" class="uk-textarea" rows="3"></textarea>                                                
-                                            </div>
-                                            <div class="uk-form-controls">
-                                                {{!-- this will trigger the email to send to the client --}}
-                                                <button class="uk-modal-close uk-button-primary uk-button-large" type="submit" id="send-email" type="button">Send Email</button>
-                                                <button class="uk-modal-close uk-button-danger uk-button-large" type="button">Cancel</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                                </div>
+                                                <label class="uk-form-label" for="firstnamereg">To: </label>
+                                                <div class="uk-form-controls">
+                                                    <input class="uk-input" id="firstnamereg" type="text" equired="" />
+                                                </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="lastnamereg">Body</label>
+                                            <textarea id="email-body" class="uk-textarea" rows="3"></textarea>
+                                        </div>
+                                        <div class="uk-form-controls">
+                                            {{!-- this will trigger the email to send to the client --}}
+                                            <button class="uk-modal-close uk-button-primary uk-button-large"
+                                                type="submit" id="send-email" type="button">Send Email</button>
+                                            <button class="uk-modal-close uk-button-danger uk-button-large"
+                                                type="button">Cancel</button>
+                                        </div>
                             </form>
                         </div>
-                    </ul>
                 </div>
+                </form>
             </div>
+            </ul>
+        </div>
+        </div>
         </div>
     </nav>
     <!-- Center Div Part  -->
