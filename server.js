@@ -20,16 +20,13 @@ app.use(express.static("public"));
 app.use(require("serve-static")(__dirname + "/../../public"));
 app.use(require("cookie-parser")());
 app.use(require("body-parser").urlencoded({ extended: true }));
-app.use(
-  require("express-session")({
-    secret: "keyboard cat",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-require("./routes")(app);
+// app.use(
+//   require("express-session")({
+//     secret: "keyboard cat",
+//     resave: true,
+//     saveUninitialized: true,
+//   })
+// );
 app.use(
   sessions({
     cookie: { maxAge: 86400000 },
@@ -41,6 +38,10 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
+require("./routes")(app);
+
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
 //   const err = new Error("Not Found");
