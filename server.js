@@ -37,6 +37,8 @@ app.use(
       checkPeriod: 86400000, // prune expired entries every 24h
     }),
     secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true,
   })
 );
 // catch 404 and forward to error handler
