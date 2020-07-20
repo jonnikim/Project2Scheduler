@@ -16,6 +16,7 @@
                 <div class="AboveCalBox">
                     <h2 class="clischheader">Choose a Date & Available Time for your Event!</h2>
                 </div>
+                <!-- CalendarClient is the Div that injects in the Calendar to choose what date to look for times with-->
                 <div id="calendarClient"></div>
                 <div id="availhrs">
                     <div id="topdate">
@@ -23,23 +24,12 @@
                         <h6 id="datedisplay"></h6>
                     </div>
                     <div id="insideTimes">
+                        <!-- Loops through time slots available and prints out buttons -->
+                        {{#each eventinfo}}
+                        <button class="{{dataValues.btnclass}}"
+                            data-timeindex="{{dataValues.timeindex}}">{{dataValues.hrtime}}</button>
+                        {{/each}}
 
-                        <button class="availTimeBox" data-timeindex="0">9:00 AM</button>
-                        <button class="availTimeBox" data-timeindex="1">9:30 AM</button>
-                        <button class="availTimeBox" data-timeindex="2">10:00 AM</button>
-                        <button class="availTimeBox" data-timeindex="3">10:30 AM</button>
-                        <button class="availTimeBox" data-timeindex="4">11:00 AM</button>
-                        <button class="availTimeBox" data-timeindex="5">11:30 AM</button>
-                        <button class="availTimeBox" data-timeindex="6">12:00 PM</button>
-                        <button class="availTimeBox" data-timeindex="7">12:30 PM</button>
-                        <button class="availTimeBox" data-timeindex="8">1:00 PM</button>
-                        <button class="availTimeBox" data-timeindex="9">1:30 PM</button>
-                        <button class="availTimeBox" data-timeindex="10">2:00 PM</button>
-                        <button class="availTimeBox" data-timeindex="11">2:30 PM</button>
-                        <button class="availTimeBox" data-timeindex="12">3:00 PM</button>
-                        <button class="availTimeBox" data-timeindex="13">3:30 PM</button>
-                        <button class="availTimeBox" data-timeindex="14">4:00 PM</button>
-                        <button class="availTimeBox" data-timeindex="15">4:30 PM</button>
 
                     </div>
                     <button id="confirmdatetime" href="#formModalSection" type="button" uk-toggle>Confirm Date and

@@ -30,11 +30,20 @@ module.exports = (sequelize, DataTypes) => {
 			testdate: DataTypes.STRING,
 			testtime: DataTypes.STRING,
 			is_booked: DataTypes.STRING,
+			event_time_id: DataTypes.INTEGER,
 		},
 		{
 			sequelize,
 			modelName: 'Event',
 		}
 	);
+
+	Event.associate = function (models) {
+		Event.belongsTo(models.EventTimes, {
+			foreignKey: 'testtime',
+			targetKey: 'hrtime',
+		});
+	};
+
 	return Event;
 };
