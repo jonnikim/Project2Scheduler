@@ -1,12 +1,12 @@
 //Dependencies
 const express = require("express");
 const exphbs = require("express-handlebars");
-const session = require("express-session");
+const sessions = require("express-session");
 const app = express();
 const path = require("path");
 //const db = require('./models');
 const passport = require("passport");
-const MemoryStore = require("memorystore")(session);
+const MemoryStore = require("memorystore")(sessions);
 
 //Handlebar Views Setup
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

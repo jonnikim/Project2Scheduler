@@ -5,8 +5,6 @@ const db = require("../models");
 let connection;
 
 if (process.env.JAWSDB_URL) {
-  console.log("Hi!");
-
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   app.set("port", process.env.PORT || 8084);
