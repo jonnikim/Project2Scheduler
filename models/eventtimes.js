@@ -22,5 +22,10 @@ module.exports = (sequelize, DataTypes) => {
 			modelName: 'EventTimes',
 		}
 	);
+
+	EventTimes.associate = function (models) {
+		EventTimes.hasMany(models.Event);
+	};
+
 	return EventTimes;
 };
