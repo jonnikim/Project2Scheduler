@@ -39,9 +39,16 @@ exports.login = function (req, res) {
 };
 exports.signOutUser = function (req, res) {
 	req.logOut();
+
 	res.redirect('/admin/login');
 };
 exports.schedule = function (req, res) {
+
+	res.redirect("/admin/login");
+  };
+exports.sendEmail = function (req, res) {
+	// Send email functionalit 
+
 	res.render('admin/schedule');
 };
 
