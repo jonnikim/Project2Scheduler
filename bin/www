@@ -12,8 +12,7 @@ if (process.env.JAWSDB_URL) {
 }
 
 db.sequelize.sync().then(function () {
-  // const server = app.listen(app.get("port"), function () {
-  const server = app.listen(connection, function () {
+  const server = app.listen(app.get("port"), function () {
     debug("Express server listening on port " + server.address().port);
   });
 });
