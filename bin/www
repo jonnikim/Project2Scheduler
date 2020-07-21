@@ -5,11 +5,11 @@ const db = require("../models");
 const mysql = require("mysql");
 let connection;
 
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection("port", process.env.JAWSDB_URL);
-} else {
-  app.set("port", process.env.PORT || 8084);
-}
+// if (process.env.JAWSDB_URL) {
+//   connection = mysql.createConnection("port", process.env.JAWSDB_URL);
+// } else {
+app.set("port", process.env.PORT || 8084);
+// }
 
 db.sequelize.sync().then(function () {
   const server = app.listen(app.get("port"), function () {
